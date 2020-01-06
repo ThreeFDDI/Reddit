@@ -1,4 +1,4 @@
 sub_watcher/praw.ini
-sub_watcher/praw.ini
 sub_watcher/credentials.json
 sub_watcher/token.pickle
+sub_watcher/already_done.txt
