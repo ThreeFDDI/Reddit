@@ -134,7 +134,7 @@ def main():
             subject = f"[GD] {post['title']}"
             message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}"
 
-            print("~"*30 + "\nCreating Email\n" + "~"*30)
+            print("~"*30 + "\nCreating Email)
 
             print(subject)
 
