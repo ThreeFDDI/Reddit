@@ -1,26 +1,20 @@
 #!/usr/local/bin/python3
 
-import praw, time, os
-import pickle
-import os.path
-import base64 
+import os.path, base64, pickle, praw, time, os
 from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-from googleapiclient.errors import HttpError
 from email.mime.text import MIMEText
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/gmail.compose']
 
 def api_login():
-    """
-    Shows basic usage of the Gmail API.
-    """
-    creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
+    creds = None
     if os.path.exists('token.pickle'):
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
@@ -104,13 +98,17 @@ def reddit_bot():
             already_done = already_done.split("\n")
             already_done = list(filter(None, already_done))
 
+    # parse new submissions
     for submission in subreddit.new(limit=10):
+        # check already done posts 
         if submission.id not in already_done:
+            # add post to already done
             already_done.append(submission.id)
+            # pull values from dict
             title = submission.title
             url = submission.url
             permalink = submission.permalink
-
+            # add new post to list of new posts
             new_posts.append({"title": title,"url": url,"permalink": permalink})
 
     # Write our updated list back to the file
