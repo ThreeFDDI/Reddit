@@ -137,13 +137,14 @@ def main():
             print("~"*30 + "\nCreating Email\n" + "~"*30)
 
             print(subject)
-            print(message_text)
 
             message = create_message(sender, to, subject, message_text)
             
             print("~"*30 + "\nSending Email")
 
             send_message(service, 'jt58alerts@gmail.com', message)
+
+            time.sleep(2)
 
 if __name__ == '__main__':
     main()
