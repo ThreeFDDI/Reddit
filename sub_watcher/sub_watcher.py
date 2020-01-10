@@ -132,29 +132,32 @@ def main():
     to = 'jt58alerts@gmail.com'
     print("\n" + "~"*30)
     
-    while True:
-        # attempt to make Reddit connection
-        try:
-            new_posts = reddit_bot()
-        # deal with HTTP error exceptions
-        except praw.exceptions.APIException as error:
-            new_posts = []
-            print(error)
-        # iterate over new posts
-        for post in new_posts:
-            # format subject and message text
-            subject = f"[GD] {post['title']}"
-            message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}"
-            # print subject
-            print("Creating Email:")
-            print(subject)
-            # create message from subject and message text
-            message = create_message(sender, to, subject, message_text)
-            # send email message
-            print("Sending Email:")
-            send_message(service, sender, message)
-            # pause
-            time.sleep(2)
+    try:
+        while True:
+            # attempt to make Reddit connection
+            try:
+                new_posts = reddit_bot()
+            # deal with HTTP error exceptions
+            except praw.exceptions.APIException as error:
+                new_posts = []
+                print(error)
+            # iterate over new posts
+            for post in new_posts:
+                # format subject and message text
+                subject = f"[GD] {post['title']}"
+                message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}"
+                # print subject
+                print("Creating Email:")
+                print(subject)
+                # create message from subject and message text
+                message = create_message(sender, to, subject, message_text)
+                # send email message
+                print("Sending Email:")
+                send_message(service, sender, message)
+                # pause
+                time.sleep(2)
+    except KeyboardInterrupt:
+        print('Quitting sub_watcher')
 
 if __name__ == '__main__':
     main()
