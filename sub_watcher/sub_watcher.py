@@ -137,7 +137,6 @@ def main():
             try:
                 new_posts = reddit_bot()
             # deal with HTTP error exceptions
-            praw.exceptions.
             except praw.exceptions as error:
                 new_posts = []
                 print(error)
