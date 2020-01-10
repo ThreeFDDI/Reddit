@@ -157,7 +157,7 @@ def main():
                 # pause
                 time.sleep(2)
     except KeyboardInterrupt:
-        print('Quitting sub_watcher')
+        print("\n" + "~"*30 + "Quitting sub_watcher\n" + "~"*30)
 
 if __name__ == '__main__':
     main()
