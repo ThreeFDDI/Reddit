@@ -131,13 +131,13 @@ def main():
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
     print("\n" + "~"*30)
-
+    
     while True:
         # attempt to make Reddit connection
         try:
             new_posts = reddit_bot()
         # deal with HTTP error exceptions
-        except praw.errors.HTTPException as error:
+        except praw.exceptions.APIException as error:
             new_posts = []
             print(error)
         # iterate over new posts
