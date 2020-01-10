@@ -7,7 +7,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
 
-
+# function for Gmail API login
 def api_login():
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -35,6 +35,7 @@ def api_login():
 
     return build('gmail', 'v1', credentials=creds)
 
+# function to create email message
 def create_message(sender, to, subject, message_text):
     """
     Create a message for an email.
@@ -59,6 +60,7 @@ def create_message(sender, to, subject, message_text):
 
     return {'raw': message}
 
+# function to send email message
 def send_message(service, user_id, message):
     """Send an email message.
 
@@ -80,7 +82,7 @@ def send_message(service, user_id, message):
     except HttpError as error:
         print(f"An error occurred: {error}")
 
-# Reddit bot
+# function for Reddit bot
 def reddit_bot():
     # initialize reddit bot
     reddit = praw.Reddit('bot1')
@@ -121,6 +123,7 @@ def reddit_bot():
 
     return new_posts
 
+# main function
 def main():
     # login to gmail API
     service = api_login()
