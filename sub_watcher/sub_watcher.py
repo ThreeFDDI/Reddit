@@ -7,17 +7,20 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
 
-# If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/gmail.compose']
 
 def api_login():
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
+
+    # If modifying these scopes, delete the file token.pickle.
+    SCOPES = ['https://www.googleapis.com/auth/gmail.compose']
     creds = None
+    
     if os.path.exists('token.pickle'):
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
+    
     # If there are no (valid) credentials available, let the user log in.
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
@@ -126,7 +129,14 @@ def main():
     to = 'jt58alerts@gmail.com'
 
     while True:
-        new_posts = reddit_bot()
+
+        # attempt to make Reddit connection
+        try:
+            new_posts = reddit_bot()
+        
+        except praw.errors.HTTPException as error:
+            new_posts = []
+            print(error)
 
         for post in new_posts:
             subject = f"[GD] {post['title']}"
@@ -140,7 +150,7 @@ def main():
             
             print("~"*30 + "\nSending Email")
 
-            send_message(service, 'jt58alerts@gmail.com', message)
+            send_message(service, sender, message)
 
             time.sleep(2)
 
