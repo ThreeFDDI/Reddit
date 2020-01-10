@@ -129,7 +129,7 @@ def main():
     # set sender and recepient
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
-    print("\n" + "~"*50)
+    print("\nStarting sub_watcher...\n" + "~"*50)
     
     try:
         while True:
@@ -154,7 +154,7 @@ def main():
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
-        print("\n" + "~"*50 + "\nQuitting sub_watcher\n" + "~"*50)
+        print("\n" + "~"*50 + "\nQuitting sub_watcher...\n" + "~"*50)
 
 if __name__ == '__main__':
     main()
