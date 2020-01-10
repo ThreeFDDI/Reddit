@@ -76,7 +76,7 @@ def send_message(service, user_id, message):
     try:
         message = (service.users().messages().send(userId=user_id, body=message)
                 .execute())
-        print(f"Message Id: {message['id']}\n" + "~"*30)
+        print(f"Message ID {message['id']}\n" + "~"*30)
         return message
 
     except HttpError as error:
