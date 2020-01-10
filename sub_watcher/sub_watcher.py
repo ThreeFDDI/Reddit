@@ -76,7 +76,7 @@ def send_message(service, user_id, message):
     try:
         message = (service.users().messages().send(userId=user_id, body=message)
                 .execute())
-        print(f"Message ID {message['id']}\n" + "~"*30)
+        print(f"Sending message ID: {message['id']}\n" + "~"*30)
         return message
 
     except HttpError as error:
@@ -147,15 +147,13 @@ def main():
                 subject = f"[GD] {post['title']}"
                 message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}"
                 # print subject
-                print("Creating Email:")
                 print(subject)
                 # create message from subject and message text
                 message = create_message(sender, to, subject, message_text)
                 # send email message
-                print("Sending Email:")
                 send_message(service, sender, message)
                 # pause
-                time.sleep(2)
+                time.sleep(3)
     except KeyboardInterrupt:
         print("\n" + "~"*30 + "Quitting sub_watcher\n" + "~"*30)
 
