@@ -76,7 +76,7 @@ def send_message(service, user_id, message):
     try:
         message = (service.users().messages().send(userId=user_id, body=message)
                 .execute())
-        print(f"Sending message ID: {message['id']}\n" + "~"*30)
+        print(f"Sending message ID: {message['id']}\n" + "~"*50)
         return message
 
     except HttpError as error:
@@ -130,7 +130,7 @@ def main():
     # set sender and recepient
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
-    print("\n" + "~"*30)
+    print("\n" + "~"*50)
     
     try:
         while True:
@@ -145,7 +145,7 @@ def main():
             for post in new_posts:
                 # format subject and message text
                 subject = f"[GD] {post['title']}"
-                message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}"
+                message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}\n"
                 # print subject
                 print(subject)
                 # create message from subject and message text
@@ -155,7 +155,7 @@ def main():
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
-        print("\n" + "~"*30 + "Quitting sub_watcher\n" + "~"*30)
+        print("\n" + "~"*30 + "\nQuitting sub_watcher\n" + "~"*30)
 
 if __name__ == '__main__':
     main()
