@@ -129,7 +129,7 @@ def main():
     # set sender and recepient
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
-    print("\n" + "~"*50 + "\n")
+    print("\n" + "~"*50)
     
     try:
         while True:
@@ -146,7 +146,7 @@ def main():
                 subject = f"[GD] {post['title']}"
                 message_text = f"{post['url']}\n\nhttps://www.reddit.com{post['permalink']}\n"
                 # print subject
-                print(f"\n{subject}\n" + "~"*50)
+                print(f"\n{subject}\n\n" + "~"*50)
                 # create message from subject and message text
                 message = create_message(sender, to, subject, message_text)
                 # send email message
