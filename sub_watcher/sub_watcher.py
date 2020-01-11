@@ -138,7 +138,9 @@ def main():
                 new_posts = reddit_bot()
             # deal with HTTP error exceptions
             except (
-                praw.exceptions.APIException,praw.exceptions.ClientException
+                praw.exceptions.APIException,
+                praw.exceptions.ClientException,
+                prawcore.exceptions.ResponseException
                 ) as error:
                     new_posts = []
                     print(error)
