@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-import os.path, base64, pickle, praw, time, os
+import os.path, base64, pickle, prawcore, praw, time, os
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
