@@ -140,7 +140,7 @@ def main():
             except (
                 praw.exceptions.APIException,
                 praw.exceptions.ClientException,
-                prawcore.exceptions.ResponseException
+                #prawcore.exceptions.ResponseException
                 ) as error:
                     new_posts = []
                     print(error)
