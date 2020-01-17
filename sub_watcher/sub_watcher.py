@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-import os.path, base64, pickle, prawcore, praw, time, os
+import os.path, base64, pickle, praw, time, os
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -140,7 +140,6 @@ def main():
             except (
                 praw.exceptions.APIException,
                 praw.exceptions.ClientException,
-                #prawcore.exceptions.ResponseException
                 ) as error:
                     new_posts = []
                     print(error)
