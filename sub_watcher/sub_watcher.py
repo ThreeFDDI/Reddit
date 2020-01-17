@@ -161,3 +161,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+Traceback (most recent call last):
+  File "sub_watcher.py", line 164, in <module>
+    main()
+  File "sub_watcher.py", line 143, in main
+    prawcore.exceptions.ResponseException
+NameError: name 'prawcore' is not defined
+'''
