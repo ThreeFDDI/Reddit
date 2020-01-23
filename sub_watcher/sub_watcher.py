@@ -144,7 +144,7 @@ def main():
                 ResponseException
                 ) as error:
                     new_posts = []
-                    print(error)
+                    print(f"\n**** {error} ****\n" + "~"*50)
             # iterate over new posts
             for post in new_posts:
                 # format subject and message text
