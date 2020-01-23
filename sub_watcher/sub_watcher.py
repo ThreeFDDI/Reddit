@@ -172,3 +172,56 @@ Traceback (most recent call last):
     prawcore.exceptions.ResponseException
 NameError: name 'prawcore' is not defined
 '''
+
+'''
+Traceback (most recent call last):
+  File "sub_watcher.py", line 165, in <module>
+    main()
+  File "sub_watcher.py", line 158, in main
+    send_message(service, sender, message)
+  File "sub_watcher.py", line 78, in send_message
+    message = (service.users().messages().send(userId=user_id, body=message)
+  File "/home/jt/.local/lib/python3.6/site-packages/googleapiclient/_helpers.py", line 130, in positional_wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/jt/.local/lib/python3.6/site-packages/googleapiclient/http.py", line 851, in execute
+    method=str(self.method), body=self.body, headers=self.headers)
+  File "/home/jt/.local/lib/python3.6/site-packages/googleapiclient/http.py", line 184, in _retry_request
+    raise exception
+  File "/home/jt/.local/lib/python3.6/site-packages/googleapiclient/http.py", line 165, in _retry_request
+    resp, content = http.request(uri, method, *args, **kwargs)
+  File "/home/jt/.local/lib/python3.6/site-packages/google_auth_httplib2.py", line 187, in request
+    self._request, method, uri, request_headers)
+  File "/home/jt/.local/lib/python3.6/site-packages/google/auth/credentials.py", line 124, in before_request
+    self.refresh(request)
+  File "/home/jt/.local/lib/python3.6/site-packages/google/oauth2/credentials.py", line 182, in refresh
+    self._scopes,
+  File "/home/jt/.local/lib/python3.6/site-packages/google/oauth2/_client.py", line 248, in refresh_grant
+    response_data = _token_endpoint_request(request, token_uri, body)
+  File "/home/jt/.local/lib/python3.6/site-packages/google/oauth2/_client.py", line 105, in _token_endpoint_request
+    response = request(method="POST", url=token_uri, headers=headers, body=body)
+  File "/home/jt/.local/lib/python3.6/site-packages/google_auth_httplib2.py", line 116, in __call__
+    url, method=method, body=body, headers=headers, **kwargs)
+  File "/home/jt/.local/lib/python3.6/site-packages/httplib2/__init__.py", line 1976, in request
+    cachekey,
+  File "/home/jt/.local/lib/python3.6/site-packages/httplib2/__init__.py", line 1640, in _request
+    conn, request_uri, method, body, headers
+  File "/home/jt/.local/lib/python3.6/site-packages/httplib2/__init__.py", line 1547, in _conn_request
+    conn.request(method, request_uri, body, headers)
+  File "/usr/lib/python3.6/http/client.py", line 1254, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.6/http/client.py", line 1300, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.6/http/client.py", line 1249, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.6/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.6/http/client.py", line 996, in send
+    self.sock.sendall(data)
+  File "/usr/lib/python3.6/ssl.py", line 975, in sendall
+    v = self.send(byte_view[count:])
+  File "/usr/lib/python3.6/ssl.py", line 944, in send
+    return self._sslobj.write(data)
+  File "/usr/lib/python3.6/ssl.py", line 642, in write
+    return self._sslobj.write(data)
+BrokenPipeError: [Errno 32] Broken pipe
+'''
