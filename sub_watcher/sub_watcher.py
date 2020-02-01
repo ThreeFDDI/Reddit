@@ -156,7 +156,10 @@ def main():
                 # create message from subject and message text
                 message = create_message(sender, to, subject, message_text)
                 # send email message
-                send_message(service, sender, message)
+                try:
+                  send_message(service, sender, message)
+                except BrokenPipeError as error:
+                  print(f"\n**** {error} ****\n" + "~"*50)
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
