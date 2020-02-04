@@ -145,7 +145,7 @@ def main():
                 RequestException
                 ) as error:
                     new_posts = []
-                    print(f"\n**** {error} ****\n" + "~"*50)
+                    print(f"\n**** {error} ****\n\n" + "~"*50)
             # iterate over new posts
             for post in new_posts:
                 # format subject and message text
@@ -159,7 +159,7 @@ def main():
                 try:
                   send_message(service, sender, message)
                 except BrokenPipeError as error:
-                  print(f"\n**** {error} ****\n" + "~"*50)
+                  print(f"\n**** {error} ****\n\n" + "~"*50)
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
