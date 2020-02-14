@@ -80,7 +80,7 @@ def send_message(service, user_id, message):
         return message
 
     except HttpError as error:
-        print(f"An error occurred: {error}")
+        print(f"An error occurred with the Gmail API: {error}")
 
 # function for Reddit bot
 def reddit_bot():
@@ -159,7 +159,7 @@ def main():
                 try:
                   send_message(service, sender, message)
                 except BrokenPipeError as error:
-                  print(f"\n**** {error} ****\n\n" + "~"*50)
+                  print(f"\n**** PRAW error: {error} ****\n\n" + "~"*50)
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
