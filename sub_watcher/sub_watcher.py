@@ -131,8 +131,8 @@ def main():
     # set sender and recepient
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
-    print(f"\nStarting sub_watcher...\n{datetime.datetime.now()}\n" + "~"*50)
-    starttime = datetime.datetime.now()
+    starttime = datetime.datetime.now().split(".")[0]
+    print(f"\nStarting sub_watcher...\n{starttime}\n" + "~"*50)
     
     try:
         while True:
@@ -165,9 +165,9 @@ def main():
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
-        quittime = datetime.datetime.now()
+        quittime = datetime.datetime.now().split(".")[0]
         timerunning = quittime - starttime
-        print("\n" + "~"*50 + f"\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
+        print(f"\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
         
 
 if __name__ == '__main__':
