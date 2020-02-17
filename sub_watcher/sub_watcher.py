@@ -7,6 +7,7 @@ from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
+import datetime
 
 # function for Gmail API login
 def api_login():
@@ -130,7 +131,8 @@ def main():
     # set sender and recepient
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
-    print("\nStarting sub_watcher...\n" + "~"*50)
+    print(f"\nStarting sub_watcher...\n{datetime.datetime.now()}\n" + "~"*50)
+    starttime = datetime.datetime.now()
     
     try:
         while True:
@@ -163,7 +165,10 @@ def main():
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
-        print("\n" + "~"*50 + "\nQuitting sub_watcher...\n" + "~"*50)
+        quittime = datetime.datetime.now()
+        timerunning = starttime - quittime
+        print(f"\n" + "~"*50 + "\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
+        
 
 if __name__ == '__main__':
     main()
