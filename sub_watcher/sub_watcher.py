@@ -168,7 +168,6 @@ def main():
     except KeyboardInterrupt:
         quittime = datetime.now()
         timerunning = quittime - starttime
-        #quitted = timerunning.strftime("%d/%m/%Y %H:%M:%S")
         print(f"\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
         
 
