@@ -167,7 +167,7 @@ def main():
     except KeyboardInterrupt:
         quittime = datetime.datetime.now()
         timerunning = starttime - quittime
-        print(f"\n" + "~"*50 + "\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
+        print("\n" + "~"*50 + f"\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
         
 
 if __name__ == '__main__':
