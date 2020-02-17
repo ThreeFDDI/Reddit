@@ -7,7 +7,8 @@ from googleapiclient.errors import HttpError
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
-from datetime import datetime, now
+from datetime import datetime
+from datetime import  now
 
 # function for Gmail API login
 def api_login():
