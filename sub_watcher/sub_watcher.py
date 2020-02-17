@@ -8,7 +8,6 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from email.mime.text import MIMEText
 from datetime import datetime
-import datetime
 
 # function for Gmail API login
 def api_login():
@@ -132,9 +131,9 @@ def main():
     # set sender and recepient
     sender = 'jt58alerts@gmail.com'
     to = 'jt58alerts@gmail.com'
-    starttime = datetime.datetime.now()
-    starttime = datetime.strptime(starttime, "%d/%m/%Y %H:%M:%S")
-    print(f"\nStarting sub_watcher...\n{starttime}\n" + "~"*50)
+    starttime = datetime.now()
+    started = starttime.strftime("%m/%d/%Y %H:%M:%S")
+    print(f"\nStarting sub_watcher...\n{started}\n" + "~"*50)
     
     try:
         while True:
@@ -167,9 +166,9 @@ def main():
                 # pause
                 time.sleep(3)
     except KeyboardInterrupt:
-        quittime = datetime.datetime.now()
-        quittime = datetime.strptime(quittime, "%d/%m/%Y %H:%M:%S")
+        quittime = datetime.now()
         timerunning = quittime - starttime
+        #quitted = timerunning.strftime("%d/%m/%Y %H:%M:%S")
         print(f"\nQuitting sub_watcher...\nRunning time = {timerunning}\n" + "~"*50)
         
 
